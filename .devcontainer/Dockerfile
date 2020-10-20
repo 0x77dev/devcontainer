@@ -19,3 +19,15 @@ ENV POSTGRES_URI=postgresql://postgres:password@postgres
 ENV MONGO_URI=mongodb://localhost
 ENV NATS_URI=nats://nats:4222
 ENV RABBITMQ_URI=amqp://rabbitmq:password@rabbitmq
+
+# Install Krypt.co
+RUN curl -L https://krypt.co/kr | bash
+
+# Install OMF
+RUN sudo -u node curl -L https://get.oh-my.fish | fish
+RUN sudo -u node echo "omf install bobthefish" | fish
+
+# Git Config Setup
+COPY ./gitconfig /home/node/.gitconfig
+RUN chmod 777 /home/node/.gitconfig
+
