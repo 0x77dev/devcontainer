@@ -1,0 +1,25 @@
+{
+	"name": "0x77dev devcontainer",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspace",
+	"settings": {
+		"terminal.integrated.shell.linux": "/usr/bin/fish",
+		"sqltools.connections": [{
+			"name": "Container database",
+			"driver": "PostgreSQL",
+			"previewLimit": 50,
+			"server": "postgres",
+			"port": 5432,
+			"username": "postgres",
+			"password": "password"
+		}]
+	},
+	"extensions": [
+		"dbaeumer.vscode-eslint",
+		"mtxr.sqltools",
+		"mtxr.sqltools-driver-pg"
+	],
+	"forwardPorts": [3000, 5432, 1024, 1025, 8080, 27017],
+	"remoteUser": "node"
+}

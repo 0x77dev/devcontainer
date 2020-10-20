@@ -1,0 +1,63 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VARIANT: 14
+        USER_UID: 1000
+        USER_GID: 1000
+
+    volumes:
+      - ..:/workspace:cached
+    command: sleep infinity
+    networks:
+      - net
+
+  postgres:
+    image: postgres:latest
+    restart: unless-stopped
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    networks:
+      - net
+
+  mongodb:
+    image: mongo:latest
+    restart: unless-stopped
+    volumes:
+      - mongodb-data:/data/db
+    networks:
+      - net
+
+  nats:
+    image: nats:latest
+    restart: unless-stopped
+    networks:
+      - net
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    restart: unless-stopped
+    volumes:
+        - rabbitmq-data:/var/lib/rabbitmq/
+    environment:
+        RABBITMQ_DEFAULT_USER: rabbitmq
+        RABBITMQ_DEFAULT_PASS: password
+    networks:
+      - net
+
+
+volumes:
+  postgres-data:
+  mongodb-data:
+  rabbitmq-data:
+
+networks:
+  net:
