@@ -1,25 +1,23 @@
 {
-	"name": "0x77dev devcontainer",
-	"dockerComposeFile": "docker-compose.yml",
-	"service": "app",
-	"workspaceFolder": "/workspace",
-	"settings": {
-		"terminal.integrated.shell.linux": "/usr/bin/fish",
-		"sqltools.connections": [{
-			"name": "Container database",
-			"driver": "PostgreSQL",
-			"previewLimit": 50,
-			"server": "postgres",
-			"port": 5432,
-			"username": "postgres",
-			"password": "password"
-		}]
-	},
-	"extensions": [
-		"dbaeumer.vscode-eslint",
-		"mtxr.sqltools",
-		"mtxr.sqltools-driver-pg"
-	],
-	"forwardPorts": [3000, 5432, 1024, 1025, 8080, 27017],
-	"remoteUser": "node"
+  "dockerComposeFile": "docker-compose.yml",
+  "extensions": [
+    "bierner.markdown-preview-github-styles",
+    "britesnow.vscode-toggle-quotes",
+    "coenraads.bracket-pair-colorizer",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "github.vscode-pull-request-github",
+    "hashicorp.terraform",
+    "mgmcdermott.vscode-language-babel",
+    "mike-co.import-sorter",
+    "msjsdiag.debugger-for-chrome",
+    "ms-azuretools.vscode-docker",
+    "oderwat.indent-rainbow",
+    "richie5um2.vscode-sort-json",
+    "streetsidesoftware.code-spell-checker"
+  ],
+  "name": "0x77dev",
+  "remoteUser": "node",
+  "service": "app",
+  "workspaceFolder": "/workspace"
 }
