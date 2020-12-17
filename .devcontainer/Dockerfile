@@ -16,6 +16,7 @@ RUN apt update && export DEBIAN_FRONTEND=noninteractive \
 RUN sudo -u node npm install -g yarn pm2 lerna 
 
 ENV POSTGRES_URI=postgresql://postgres:password@postgres
+ENV POSTGRES=postgres
 ENV MONGO_URI=mongodb://localhost
 ENV NATS_URI=nats://nats:4222
 ENV RABBITMQ_URI=amqp://rabbitmq:password@rabbitmq
