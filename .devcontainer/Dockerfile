@@ -27,6 +27,9 @@ RUN curl -L https://krypt.co/kr | bash
 RUN sudo -u node curl -L https://get.oh-my.fish | fish
 RUN sudo -u node echo "omf install bobthefish" | fish
 
+# Install Google Cloud SDK
+RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg  add - && apt-get update -y && apt-get install google-cloud-sdk default-jre --no-install-recommends -y
+
 # Git Config Setup
 COPY ./gitconfig /home/node/.gitconfig
 RUN chmod 777 /home/node/.gitconfig
